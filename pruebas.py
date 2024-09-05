@@ -1,5 +1,6 @@
 from codificador import grafo_a_binario
 from codificador import binario_a_grafo
+from codificador import binario_a_matriz
 from utils import print_broken_string
 
 # Pruebas
@@ -53,3 +54,13 @@ if __name__ == "__main__":
     probar_codificacion_decodificacion(g1 )
     probar_codificacion_decodificacion(g2)
     probar_codificacion_decodificacion(g3)
+
+    print("Pruebas de Binario a Matriz")
+
+
+    cadena_binaria = grafo_a_binario(g1)
+    matriz = binario_a_matriz(cadena_binaria)
+
+    print("matriz de adyacencias")
+    print(matriz)
+    print()
