@@ -31,7 +31,7 @@ def binario_a_grafo(cadena_binaria, longitud_numero=8):
         dict: Un diccionario que representa el grafo.
     """
     grafo = {}
-    nodo = 1 # La numeraciòn de los nodos empiza en 1
+    nodo = 1 # La numeraciòn de los nodos empieza en 1
     grafo[nodo] = []
     for i in range(0, len(cadena_binaria), longitud_numero):
         nodo_nuevo = cadena_binaria[i:i+longitud_numero]
@@ -69,7 +69,7 @@ def binario_a_matriz(cadena_binaria, longitud_numero=8):
             if numero == "0" * longitud_numero:
                 num_nodos+= 1
     num_nodos+= 1  
-    print("Numero de nodos: ", num_nodos)
+    #print("Numero de nodos: ", num_nodos)
 
     
     matriz = [[0] * num_nodos for _ in range(num_nodos)]  # Inicializa la matriz

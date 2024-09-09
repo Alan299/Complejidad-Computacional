@@ -106,24 +106,32 @@ def procesa_grafo(ruta_archivo):
             grafo.append(fila)
     return grafo
 
-if __name__ == "__main__":
+def main():
     parser = argparse.ArgumentParser(description='Determina si un grafo tiene un camino Euleriano.')
     parser.add_argument('archivo', help='Ruta al archivo que contiene la matriz de adyacencia')
     args = parser.parse_args()
 
     matriz = procesa_grafo(args.archivo)
 
-    print("matriz")
-    print(*matriz, sep = "\n")
-
-    """
-    python fleury.py   ejemplos/g1.txt
-    """
+    # Calcular estadísticas
+    num_vertices = len(matriz)
+    num_aristas = sum(sum(fila) for fila in matriz) // 2
+    grados = [sum(fila) for fila in matriz]
+    grado_maximo = grados.index(max(grados)) +1
+    
+    
 
     inicio = encuentra_vertice_inicial(matriz)
     camino = []
     circuito_encontrado = [False]
-    algoritmo_fleury(inicio = inicio, grafo = matriz, camino = camino , circuito_encontrado =circuito_encontrado )
+    algoritmo_fleury(inicio, matriz, camino, circuito_encontrado)
 
-    print(camino)
-    print(circuito_encontrado)
+    print(f"Número de vértices: {num_vertices}")
+    print(f"Número de aristas: {num_aristas}")
+    print(f"Vértice de mayor grado: {grado_maximo}")
+    print("¿Tiene un camino Euleriano?", "SI" if circuito_encontrado[0] else "NO")
+    if circuito_encontrado[0]:
+        print("Camino Euleriano:", camino)
+
+if __name__ == "__main__":
+    main()

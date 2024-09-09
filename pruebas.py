@@ -10,6 +10,7 @@ def probar_codificacion_decodificacion(grafo:dict):
     print("cadena binaria")
     print_broken_string(cadena_binaria)
     print()
+    print("cadena binaria completa: ", cadena_binaria)
 
     grafo_recuperado = binario_a_grafo(cadena_binaria)
     print("Grafo recuperado")
