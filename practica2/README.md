@@ -1,5 +1,5 @@
 # Practica 2 - Ruta Hamiltoniana
-Practicas de complejidad computacional
+
 
 
 ### Instalación de dependencias
@@ -11,33 +11,37 @@ pip install -r requirements.txt
 ```
 
 
+##  Genera Certificado 
 
-# obten_matriz (ejercicio 3)
+Para ejecutar el programa `genera_certificado.py`, debes proporcionar dos argumentos:
 
-Este script Python convierte una representación binaria de un grafo en una matriz de adyacencia.
-
-## Cómo utilizar
-
-
-`Ejecución:`
+- El archivo de entrada que contiene la matriz de adyacencia del grafo.
+- El archivo de salida donde se guardará el certificado generado aleatoriamente.
 
 ```bash
-python obten_matriz.py <archivo_entrada> <archivo_salida>
-
-```
-
-
-# fleury  (ejercicio 4)
-
-Este script encuentra una ruta eulerina (si existe) en un grafo.
-El grafo se pasa como un archivo de texto (.txt) al ejecutar el script.
-El grafo es una matriz de adyacencias con un nodo por linea
-
-## Cómo utilizar
+python genera_certificado.py <archivo_entrada> <archivo_salida>
+``` 
 
 
-`Ejecución:`
+### Estructura del archivo de entrada:
 
-```bash
-python fleury.py e<archivo_entrada>
-```
+El archivo de entrada debe estar en el siguiente formato:
+
+
+n
+
+fila_1
+
+fila_2
+
+...
+
+fila_n
+
+
+
+### Notas:
+
+- El certificado generado será una secuencia de vértices que podría representar una ruta hamiltoniana dentro del grafo.
+- El archivo de salida contendrá el certificado como una sequencia de vèrtices
+
