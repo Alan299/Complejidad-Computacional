@@ -56,21 +56,32 @@ def verificar_certificado(matriz: np.array, certificado: list):
         bool: True si el certificado es una ruta hamiltoniana válida, False en caso contrario
     """
     n = len(certificado)
-    
+
+
     # Verificar que todos los vértices sean únicos (es decir, que se visiten exactamente una vez)
     if len(set(certificado)) != len(matriz):
         return False
     
+    visitados = { nodo: False  for nodo in range(len(matriz)) }
+    
     # Verificar que cada par consecutivo de vértices en el certificado esté conectado
+    
     for i in range(n - 1):
-        if matriz[certificado[i]][certificado[i + 1]] == 0:
+        u = certificado[i]
+        v = certificado[i + 1]
+
+        # si la arista (u,v) no existe, regresa False
+        if matriz[u][v] == 0:
             return False
-    
-    # Verificar que el último vértice esté conectado al primero si es un ciclo hamiltoniano
-    if matriz[certificado[-1]][certificado[0]] == 0:
-        return False
-    
-    return True
+        
+        #marca los nodos como visitados
+        if i == 0:
+            visitados[u] = True 
+            visitados[v] = True 
+        else:
+            visitados[v] = True
+    #revisa que todos los nodos hayan sido visitados
+    return False not in  visitados.values()
 
 def generar_certificado_aleatorio(n: int):
     """
